@@ -157,11 +157,11 @@ body.menu-open #mobileMenu a.mlink:nth-child(1){transition-delay:.22s}body.menu-
 .hero-kicker span{color:var(--neon)}
 .hero-kicker::after{content:"";height:1px;width:min(140px,24vw);background:linear-gradient(90deg,var(--neon),transparent)}
 body.loaded .hero-kicker{opacity:1;transform:none}
-.hero-title{font-family:var(--font-display);font-size:clamp(3rem,12vw,12rem);line-height:.92;text-transform:uppercase;will-change:transform}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,9.8vw,9.8rem);line-height:.92;text-transform:uppercase;will-change:transform}
 .hero-title .line{display:block;overflow:hidden;padding-bottom:.05em;margin-bottom:-.05em}
 .hero-title .line-inner{display:block;white-space:nowrap;transform:translateY(112%);transition:transform 1.1s var(--ease);transition-delay:var(--d,0ms)}
 body.loaded .hero-title .line-inner{transform:none}
-.hero-title .l-outline{color:transparent;-webkit-text-stroke:clamp(1.5px,.22vw,3px) var(--bone)}
+.hero-title .l-outline{color:transparent;-webkit-text-stroke:clamp(1.25px,.18vw,2.5px) var(--bone)}
 .hero-title .l-neon{color:var(--neon)}
 .hero-roll{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.4rem,3.4vw,2.4rem);color:var(--grey);margin-top:1.2rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease) .8s,transform .8s var(--ease) .8s}
 body.loaded .hero-roll{opacity:1;transform:none}
@@ -455,7 +455,7 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 0;overflow:hidden}
 }
 @media(max-width:760px){
   .sound-toggle .stxt{display:none}
-  .hero-title{font-size:clamp(2.4rem,12vw,5rem)}
+  .hero-title{font-size:clamp(2rem,9.8vw,4.1rem)}
   .world-row{grid-template-columns:1fr auto;grid-template-areas:"thumb thumb" "nm ct"}
   .world-row .num{display:none}
   .world-row .nm{grid-area:nm;font-size:1.7rem}
@@ -894,7 +894,7 @@ body.reduced .marquee-track{animation:none}
         <div><h4>CATEGORY</h4><p id="caseCat">—</p></div>
         <div><h4>ROLE</h4><p id="caseRole">—</p></div>
         <div><h4>YEAR</h4><p id="caseYear">—</p></div>
-        <div><h4>SYSTEM</h4><div class="chips" id="caseChips"></div></div>
+        <div><h4>TAGS</h4><div class="chips" id="caseChips"></div></div>
       </div>
       <figure class="case-hero"><img id="caseImg" src="assets/work-stroom.jpg" alt=""></figure>
       <div class="case-duo">
@@ -1221,7 +1221,7 @@ function fitHero(){
   var w = first.getBoundingClientRect().width || 1;
   first.style.fontSize = "";
   first.style.display = "";
-  var size = Math.max(38, Math.min(260, 100 * avail / w));
+  var size = Math.max(32, Math.min(213, 82 * avail / w));
   heroTitle.style.fontSize = size.toFixed(1) + "px";
 }
 var fitT = null;
