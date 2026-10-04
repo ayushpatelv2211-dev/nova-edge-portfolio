@@ -34,13 +34,17 @@ Push to GitHub and connect the repo to any of these (no build settings needed):
 
 ## Videos
 
-Project films stream from [Mux](https://mux.com). Each project in the `CASES` array
-(`index.html`) carries its own `pid` (Mux playback id), `orient` (`landscape` 16:9 or
-`portrait` 9:16), `dur`, and `frames` (timecodes for the case-study frame strip).
+Project films play through the **official Mux player** — each surface embeds
+`https://player.mux.com/{playback-id}` (the shareable links) as an iframe, themed
+via query params (`primary-color`, `accent-color`, `autoplay`). No custom video
+engine on the page: Mux handles HLS, buffering and quality.
 
-To swap a film, edit that entry — posters, previews, case players and frame grabs all
-follow automatically (frames are served live from `image.mux.com/{pid}/thumbnail.jpg`).
-Local posters live in `assets/poster-*.jpg` (regenerate from any frame via
+Each project in the `CASES` array (`index.html`) carries its `pid` (Mux playback
+id), `orient` (`landscape` 16:9 or `portrait` 9:16), `dur`, and `frames`
+(timecodes for the case-study frame strip). To swap a film, edit that entry —
+players, posters and frame grabs all follow automatically.
+
+Local posters live in `assets/poster-*.jpg` (regenerate any frame via
 `https://image.mux.com/{pid}/thumbnail.jpg?time={seconds}&width={w}`).
 
 ## Structure

@@ -429,42 +429,20 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 0;overflow:hidden}
 .reel-head .rec{color:var(--neon)}
 .reel-close{border:1px solid var(--line);border-radius:999px;padding:.6rem 1.2rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.2em}
 .reel-close:hover{border-color:var(--neon);color:var(--neon)}
-/* video showcase — v3.0 */
-.stage-vid{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
-.stage-vid.on{opacity:1}
-.stage-vid video{width:100%;height:100%;object-fit:cover;display:block}
-.stage-media.is-portrait .stage-vid video{width:auto;height:92%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;border:1px solid rgba(242,239,230,.22);box-shadow:0 26px 70px rgba(0,0,0,.6)}
-.stage-media.is-portrait img{filter:blur(22px) brightness(.52) saturate(1.15);transform:scale(1.16)}
-.hero-frame .stage-vid video{pointer-events:none}
+/* video showcase — v3.0 (official Mux player embeds) */
+.mux-box{position:relative;width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#050505}
+.mux-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:blur(24px) brightness(.55);transform:scale(1.15)}
+.mux-box iframe{position:relative;z-index:2;width:100%;height:100%;border:0;display:block;background:#000}
+.mux-box.portrait iframe{width:auto;height:100%;aspect-ratio:9/16;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.65)}
+.mux-bar{display:flex;align-items:center;gap:.85rem 1.15rem;flex-wrap:wrap;padding:1.05rem 1.3rem;border-top:1px solid var(--line);background:var(--panel)}
+.mux-now{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.24em;color:var(--neon);margin-right:auto}
 .s-meta{display:inline-flex;gap:.55rem;align-items:center;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;color:var(--faint)}
 .s-meta b{color:var(--neon);font-weight:400}
-/* universal player (case hero + reel) */
-.vp-media{position:relative;height:min(62vh,620px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#050505}
-.case-hero .vp-media{height:min(52vh,520px)}
-.vp-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:blur(30px) brightness(.5) saturate(1.1);transform:scale(1.18)}
-.vp-media video{position:relative;z-index:2;max-width:100%;max-height:100%;display:block;background:#000}
-.vp-media.landscape video{width:100%;height:100%;object-fit:contain}
-.vp-media.portrait video{height:100%;width:auto;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;border:1px solid rgba(242,239,230,.2);box-shadow:0 30px 90px rgba(0,0,0,.65)}
-.vp-err{position:absolute;inset:0;z-index:5;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;text-align:center;padding:1.5rem;background:rgba(5,5,5,.86);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.22em;color:var(--grey)}
-.vp-err b{color:var(--neon);font-weight:400;font-family:var(--font-display);font-size:1.35rem;letter-spacing:.06em}
-.vp-media.errored .vp-err{display:flex}
-.vp-media.errored .vp-big{opacity:0;pointer-events:none}
-.vp-big{position:absolute;z-index:4;left:50%;top:50%;width:clamp(72px,7vw,96px);height:clamp(72px,7vw,96px);margin:calc(clamp(72px,7vw,96px)/-2) 0 0 calc(clamp(72px,7vw,96px)/-2);border-radius:50%;background:var(--neon);color:#060606;font-size:clamp(1.2rem,1.8vw,1.6rem);display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),opacity .35s;box-shadow:0 20px 70px rgba(214,255,63,.35)}
-.vp-big:hover{transform:scale(1.08)}
-.vp-media.playing .vp-big{opacity:0;pointer-events:none;transform:scale(.7)}
-.vp-bar{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;border-top:1px solid var(--line);flex-wrap:wrap;background:var(--panel)}
-.case-hero .vp-bar{border-top:1px solid var(--line)}
-.vp-btn{width:52px;height:52px;border-radius:50%;background:var(--neon);color:#060606;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s var(--ease)}
-.vp-btn:hover{transform:scale(1.08)}
-.vp-track{position:relative;flex:1;min-width:120px;height:24px;display:flex;align-items:center;cursor:pointer;touch-action:none}
-.vp-track .tr-bg{position:absolute;left:0;right:0;height:3px;background:rgba(242,239,230,.16);border-radius:2px}
-.vp-track .tr-buf{position:absolute;left:0;height:3px;width:0;background:rgba(242,239,230,.3);border-radius:2px}
-.vp-track .tr-fill{position:absolute;left:0;height:3px;width:0;background:var(--neon);border-radius:2px}
-.vp-track .tr-knob{position:absolute;left:0;width:12px;height:12px;border-radius:50%;background:var(--neon);transform:translateX(-50%);opacity:0;transition:opacity .25s}
-.vp-track:hover .tr-knob{opacity:1}
 .vp-time{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;color:var(--grey);white-space:nowrap}
-.vp-ghost{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.22em;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:.65rem 1.15rem;transition:color .3s,border-color .3s,background .3s}
+.vp-time b{color:var(--neon);font-weight:400}
+.vp-ghost{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.22em;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:.65rem 1.15rem;transition:color .3s,border-color .3s,background .3s;white-space:nowrap}
 .vp-ghost:hover,.vp-ghost.on{color:var(--neon);border-color:rgba(214,255,63,.5)}
+
 /* reel chapters */
 .reel-body{display:grid;grid-template-columns:292px 1fr}
 .reel-chapters{border-right:1px solid var(--line);max-height:min(68vh,640px);overflow-y:auto}
@@ -479,7 +457,7 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 0;overflow:hidden}
 .chap.active .ch-cat{color:var(--neon)}
 .chap .ch-dur{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.18em;color:var(--faint)}
 .reel-stage{min-width:0;display:flex;flex-direction:column}
-.reel-stage .vp-media{height:min(62vh,620px);flex:none}
+.reel-stage .mux-box{flex:none}
 .reel-hint{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.24em;color:var(--faint);padding:.75rem 1.2rem;border-top:1px solid var(--line)}
 /* motion upgrades — v2.1 */
 .float-preview{position:fixed;top:0;left:0;z-index:2490;width:clamp(180px,16vw,240px);pointer-events:none;opacity:0;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 22px 60px rgba(0,0,0,.6);transition:opacity .25s;will-change:transform}
@@ -559,9 +537,9 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 0;overflow:hidden}
   .reel-chapters{display:flex;overflow-x:auto;border-right:0;border-top:1px solid var(--line);max-height:none;order:2}
   .chap{flex:0 0 230px;border-bottom:0;border-right:1px solid var(--line)}
   .reel-stage{order:1}
-  .vp-media{height:min(46vh,380px)}
-  .reel-stage .vp-media{height:min(46vh,380px)}
-  .case-hero .vp-media{height:min(42vh,340px)}
+  .mux-box.portrait{aspect-ratio:auto;height:min(64vh,520px)}
+  .mux-box.portrait iframe{height:100%;width:auto;aspect-ratio:9/16}
+  .mux-now{margin-right:0}
 }
 /* motion safety */
 @media(prefers-reduced-motion:reduce){
@@ -688,7 +666,6 @@ body.reduced .float-preview{display:none}
     <div class="hero-stage" data-cursor="explore">
       <button class="hero-frame" id="heroFrame" data-depth="0.02" aria-label="Watch the NOVA EDGE showreel">
         <img src="assets/poster-stroom.jpg" alt="STROOM launch film — still frame" fetchpriority="high" decoding="async">
-        <span class="stage-vid" id="heroVid" aria-hidden="true"></span>
         <span class="tag"><b>◉ SHOWREEL ’26</b> — PRESS PLAY</span>
         <span class="hero-play" aria-hidden="true">▶</span>
       </button>
@@ -757,7 +734,6 @@ body.reduced .float-preview{display:none}
           <img src="assets/poster-sardardham.jpg" alt="Sardardham preview" loading="lazy" decoding="async">
           <img src="assets/poster-ldce.jpg" alt="LDCE preview" loading="lazy" decoding="async">
           <img src="assets/poster-ecstacy.jpg" alt="Ecstacy preview" loading="lazy" decoding="async">
-          <div class="stage-vid" id="stageVid" aria-hidden="true"></div>
           <div class="stage-glow" aria-hidden="true"></div>
           <div class="stage-idx" id="stageIdx" aria-hidden="true">01</div>
         </div>
@@ -802,7 +778,6 @@ body.reduced .float-preview{display:none}
           <img src="assets/poster-stroom.jpg" alt="" loading="lazy" decoding="async">
           <img src="assets/poster-ldce.jpg" alt="" loading="lazy" decoding="async">
           <img src="assets/poster-nempanth.jpg" alt="" loading="lazy" decoding="async">
-          <div class="stage-vid" id="srvVid" aria-hidden="true"></div>
         </div>
         <div class="srv-info">
           <span class="s-kicker" id="srvKicker">01 — VIDEO EDITING</span>
@@ -978,18 +953,15 @@ body.reduced .float-preview{display:none}
         <div><h4>YEAR</h4><p id="caseYear">—</p></div>
         <div><h4>TAGS</h4><div class="chips" id="caseChips"></div></div>
       </div>
-      <div class="case-hero vplayer" id="casePlayer">
-        <div class="vp-media landscape" id="caseMedia">
-          <div class="vp-bg" id="caseBg"></div>
-          <video id="caseVideo" playsinline preload="metadata"></video>
-          <button class="vp-big" id="caseBig" aria-label="Play project film">▶</button>
+      <div class="case-hero" id="casePlayer">
+        <div class="mux-box landscape" id="caseMedia">
+          <div class="mux-bg" id="caseBg"></div>
+          <iframe id="caseFrame" title="Project film" src="about:blank" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
-        <div class="vp-bar">
-          <button class="vp-btn" id="casePlay" aria-label="Play or pause">▶</button>
-          <div class="vp-track" id="caseTrack" role="slider" aria-label="Seek"><div class="tr-bg"></div><div class="tr-buf"></div><div class="tr-fill"></div><div class="tr-knob"></div></div>
-          <span class="vp-time" id="caseTime">00:00 / 00:00</span>
-          <button class="vp-ghost on" id="caseMute">SOUND: ON</button>
-          <button class="vp-ghost" id="caseFs">FULLSCREEN</button>
+        <div class="mux-bar">
+          <span class="mux-now" id="caseNow">● NOW PLAYING</span>
+          <span class="vp-time" id="caseFmt"><b>◆ 00:00</b> FILM</span>
+          <a class="vp-ghost" id="caseMuxLink" href="https://player.mux.com/" target="_blank" rel="noopener">OPEN ON MUX ↗</a>
         </div>
       </div>
       <div class="case-duo">
@@ -1015,19 +987,16 @@ body.reduced .float-preview{display:none}
     <div class="reel-body">
       <div class="reel-chapters" id="reelChapters" role="list" aria-label="Reel chapters"></div>
       <div class="reel-stage">
-        <div class="vp-media landscape" id="reelMedia">
-          <div class="vp-bg" id="reelBg"></div>
-          <video id="reelVideo" playsinline preload="metadata"></video>
-          <button class="vp-big" id="reelBig" aria-label="Play showreel">▶</button>
+        <div class="mux-box landscape" id="reelMedia">
+          <div class="mux-bg" id="reelBg"></div>
+          <iframe id="reelFrame" title="NOVA EDGE reel" src="about:blank" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
-        <div class="vp-bar">
-          <button class="vp-btn" id="reelPlay" aria-label="Play or pause">▶</button>
-          <div class="vp-track" id="reelTrack" role="slider" aria-label="Seek"><div class="tr-bg"></div><div class="tr-buf"></div><div class="tr-fill"></div><div class="tr-knob"></div></div>
-          <span class="vp-time" id="reelTime">00:00 / 00:00</span>
-          <button class="vp-ghost on" id="reelMute">SOUND: ON</button>
-          <button class="vp-ghost" id="reelFs">FULLSCREEN</button>
+        <div class="mux-bar">
+          <button class="vp-ghost" id="reelPrev">← PREV FILM</button>
+          <button class="vp-ghost" id="reelNext">NEXT FILM →</button>
+          <a class="vp-ghost" id="reelMuxLink" href="https://player.mux.com/" target="_blank" rel="noopener">OPEN ON MUX ↗</a>
         </div>
-        <p class="reel-hint">CHAPTERS PLAY IN ORDER — ONE CONTINUOUS REEL</p>
+        <p class="reel-hint">OFFICIAL MUX PLAYER — FULL QUALITY, EVERY DEVICE</p>
       </div>
     </div>
   </div>
@@ -1123,310 +1092,33 @@ function caseByKey(k){
   return null;
 }
 
-/* ============ VIDEO CORE (HLS + custom player) ============ */
-var HLS_SOURCES = [
-  "assets/hls.min.js",
-  "https://cdn.jsdelivr.net/npm/hls.js@1.7.3/dist/hls.min.js",
-  "https://unpkg.com/hls.js@1.7.3/dist/hls.min.js"
-];
-var hlsLoad = null;
-function ensureHls(){
-  if(window.Hls){ return Promise.resolve(true); }
-  if(!hlsLoad){
-    hlsLoad = new Promise(function(res){
-      var idx = 0;
-      (function tryNext(){
-        if(idx >= HLS_SOURCES.length){ res(false); return; }
-        var s = document.createElement("script");
-        s.src = HLS_SOURCES[idx++];
-        s.async = true;
-        s.onload = function(){ res(!!window.Hls); };
-        s.onerror = tryNext;
-        document.head.appendChild(s);
-      })();
-    });
-  }
-  return hlsLoad;
-}
-function nativeHls(video){ return !!(video.canPlayType && video.canPlayType("application/vnd.apple.mpegurl")); }
-function safePlay(v, onFail){
-  try{
-    var p = v.play();
-    if(p && p.catch){ p.catch(function(){ if(onFail){ onFail(); } }); }
-  }catch(e){ if(onFail){ onFail(); } }
-}
-function streamUrl(pid){ return "https://stream.mux.com/" + pid + ".m3u8"; }
+/* ============ VIDEO CORE — official Mux player embeds ============ */
 function thumbUrl(pid, t, w){ return "https://image.mux.com/" + pid + "/thumbnail.jpg?time=" + t + "&width=" + (w || 1200); }
-function attachStream(video, pid){
-  var url = streamUrl(pid);
-  function baseDetach(){
-    try{ video.pause(); }catch(e){}
-    if(video._hls){ try{ video._hls.destroy(); }catch(e){} video._hls = null; }
-    video.removeAttribute("src");
-    try{ video.load(); }catch(e){}
+function muxSrc(pid, opts){
+  opts = opts || {};
+  var q = [
+    "metadata-video-title=" + encodeURIComponent(opts.title || "NOVA EDGE"),
+    "primary-color=" + encodeURIComponent("#d6ff3f"),
+    "accent-color=" + encodeURIComponent("#060606")
+  ];
+  if(opts.autoplay){ q.push("autoplay=" + encodeURIComponent(opts.autoplay)); }
+  return "https://player.mux.com/" + pid + "?" + q.join("&");
+}
+function muxLoad(iframe, box, bg, c, autoplay){
+  if(!iframe || !c){ return; }
+  iframe.title = c.name + " \u2014 a film by NOVA EDGE";
+  if(box){
+    box.classList.toggle("portrait", c.orient === "portrait");
+    box.classList.toggle("landscape", c.orient !== "portrait");
   }
-  function fireStreamError(){
-    try{ video.dispatchEvent(new Event("streamerror")); }catch(e){}
-  }
-  if(nativeHls(video)){
-    video.src = url;
-    video.addEventListener("error", fireStreamError);
-    return Promise.resolve(baseDetach);
-  }
-  return ensureHls().then(function(ok){
-    if(ok && window.Hls && window.Hls.isSupported()){
-      var h = new window.Hls({ capLevelToPlayerSize:true, maxBufferLength:10, maxMaxBufferLength:16, backBufferLength:0 });
-      video._hls = h;
-      h.on(window.Hls.Events.ERROR, function(e, data){
-        if(data && data.fatal){ fireStreamError(); }
-      });
-      h.loadSource(url);
-      h.attachMedia(video);
-    }else{
-      video.src = url;
-      video.addEventListener("error", fireStreamError);
-    }
-    return baseDetach;
-  });
+  if(bg){ bg.style.backgroundImage = "url('" + c.img + "')"; }
+  iframe.src = muxSrc(c.pid, {title: c.name, autoplay: autoplay === false ? null : "any"});
+}
+function muxStop(iframe){
+  if(!iframe){ return; }
+  try{ iframe.src = "about:blank"; }catch(e){}
 }
 
-/* ambient preview layer — muted loop that fades in over the poster */
-function Preview(wrap){
-  this.wrap = wrap;
-  this.video = null;
-  this.detach = null;
-  this.key = null;
-}
-Preview.prototype.load = function(key, autoplay){
-  var self = this;
-  if(this.key === key){
-    if(this.video && autoplay){ safePlay(this.video); this.wrap.classList.add("on"); }
-    return;
-  }
-  this.key = key;
-  this.clear();
-  var c = caseByKey(key);
-  if(!c){ return; }
-  var v = document.createElement("video");
-  v.muted = true; v.loop = true; v.preload = "auto";
-  v.setAttribute("playsinline", "");
-  v.setAttribute("aria-hidden", "true");
-  v.poster = c.img;
-  this.wrap.appendChild(v);
-  this.video = v;
-  v.addEventListener("canplay", function(){
-    if(self.video !== v){ return; }
-    self.wrap.classList.add("on");
-    if(autoplay){ safePlay(v); }
-  }, {once:true});
-  attachStream(v, c.pid).then(function(fn){
-    if(self.video === v){ self.detach = fn; }
-    else{ try{ fn(); }catch(e){} }
-  });
-  if(autoplay){ safePlay(v); }
-};
-Preview.prototype.clear = function(){
-  var v = this.video, d = this.detach;
-  this.video = null; this.detach = null;
-  this.wrap.classList.remove("on");
-  if(v){
-    try{ v.pause(); }catch(e){}
-    if(v._hls){ try{ v._hls.destroy(); }catch(e){} v._hls = null; }
-    v.removeAttribute("src");
-    if(v.parentNode){ v.parentNode.removeChild(v); }
-  }
-  if(d){ try{ d(); }catch(e){} }
-};
-Preview.prototype.pause = function(){ if(this.video){ try{ this.video.pause(); }catch(e){} } };
-Preview.prototype.resume = function(){ if(this.video && this.key){ safePlay(this.video); } };
-
-/* universal player — case hero + reel stage (custom UI over HLS) */
-function initPlayer(cfg){
-  var media = cfg.media, video = cfg.video, bg = cfg.bg,
-      big = cfg.big, playBtn = cfg.playBtn, track = cfg.track,
-      fill = track ? track.querySelector(".tr-fill") : null,
-      buf = track ? track.querySelector(".tr-buf") : null,
-      knob = track ? track.querySelector(".tr-knob") : null,
-      timeEl = cfg.time, muteBtn = cfg.mute, fsBtn = cfg.fs,
-      root = cfg.root || media;
-  var detach = null, key = null, wantPlay = false, userMuted = null;
-
-  var errBox = document.createElement("div");
-  errBox.className = "vp-err";
-  errBox.innerHTML = "<b>STREAM UNAVAILABLE</b><span>THE FILM COULDN'T LOAD — CHECK THE CONNECTION</span>";
-  media.appendChild(errBox);
-
-  function syncMute(){
-    if(muteBtn){
-      muteBtn.textContent = video.muted ? "SOUND: OFF" : "SOUND: ON";
-      muteBtn.classList.toggle("on", !video.muted);
-    }
-  }
-  function setIcon(){
-    var p = !video.paused && !video.ended;
-    if(playBtn){ playBtn.textContent = p ? "\u275A\u275A" : "\u25B6"; }
-    media.classList.toggle("playing", p);
-  }
-  function update(){
-    var d = isFinite(video.duration) ? video.duration : 0;
-    var t = video.currentTime || 0;
-    var pct = d ? (t / d * 100) : 0;
-    if(fill){ fill.style.width = pct + "%"; }
-    if(knob){ knob.style.left = pct + "%"; }
-    if(timeEl){ timeEl.textContent = fmt(t) + " / " + fmt(d); }
-    try{
-      if(buf && video.buffered && video.buffered.length && d){
-        buf.style.width = (video.buffered.end(video.buffered.length - 1) / d * 100) + "%";
-      }
-    }catch(e){}
-  }
-  function startPlay(){
-    safePlay(video, function(){
-      /* autoplay with sound was blocked (or source not ready) — retry muted */
-      video.muted = true;
-      userMuted = true;
-      syncMute();
-      safePlay(video);
-    });
-  }
-  function toggle(){
-    if(!key){ return; }
-    if(video.paused || video.ended){
-      wantPlay = true;
-      media.classList.remove("errored");
-      startPlay();
-    }else{
-      wantPlay = false;
-      try{ video.pause(); }catch(e){}
-    }
-  }
-  function onFail(){
-    if(!wantPlay && !key){ return; }
-    media.classList.add("errored");
-    setIcon();
-  }
-  if(big){ big.addEventListener("click", toggle); }
-  if(playBtn){ playBtn.addEventListener("click", toggle); }
-  video.addEventListener("play", setIcon);
-  video.addEventListener("pause", setIcon);
-  video.addEventListener("ended", function(){
-    setIcon();
-    if(cfg.onEnded){ cfg.onEnded(); }
-  });
-  video.addEventListener("timeupdate", update);
-  video.addEventListener("progress", update);
-  video.addEventListener("loadedmetadata", update);
-  video.addEventListener("canplay", function(){
-    if(wantPlay && video.paused){ startPlay(); }
-    media.classList.remove("errored");
-  });
-  video.addEventListener("error", onFail);
-  video.addEventListener("streamerror", onFail);
-  if(muteBtn){
-    muteBtn.addEventListener("click", function(){
-      video.muted = !video.muted;
-      userMuted = video.muted;
-      syncMute();
-    });
-  }
-  if(fsBtn){
-    fsBtn.addEventListener("click", function(){
-      try{
-        if(document.fullscreenElement){ document.exitFullscreen(); }
-        else if(root.requestFullscreen){ root.requestFullscreen(); }
-      }catch(e){}
-    });
-  }
-  if(track){
-    var dragging = false;
-    function seek(e){
-      if(!isFinite(video.duration)){ return; }
-      var r = track.getBoundingClientRect();
-      var x = Math.min(1, Math.max(0, (e.clientX - r.left) / (r.width || 1)));
-      video.currentTime = x * video.duration;
-      update();
-    }
-    track.addEventListener("pointerdown", function(e){
-      dragging = true;
-      try{ track.setPointerCapture(e.pointerId); }catch(err){}
-      seek(e);
-    });
-    track.addEventListener("pointermove", function(e){ if(dragging){ seek(e); } });
-    ["pointerup","pointercancel"].forEach(function(ev){
-      track.addEventListener(ev, function(){ dragging = false; });
-    });
-  }
-  return {
-    load: function(k, autoplay){
-      var c = caseByKey(k);
-      if(!c){ return; }
-      key = k;
-      wantPlay = !!autoplay;
-      media.classList.remove("errored");
-      if(detach){ try{ detach(); }catch(e){} detach = null; }
-      if(video._hls){ try{ video._hls.destroy(); }catch(e){} video._hls = null; }
-      try{ video.pause(); }catch(e){}
-      video.removeAttribute("src");
-      try{ video.load(); }catch(e){}
-      video.poster = c.img;
-      if(userMuted === null){ video.muted = !!cfg.startMuted; }
-      else{ video.muted = userMuted; }
-      syncMute();
-      if(bg){ bg.style.backgroundImage = "url('" + c.img + "')"; }
-      media.classList.toggle("portrait", c.orient === "portrait");
-      media.classList.toggle("landscape", c.orient !== "portrait");
-      setIcon(); update();
-      var kk = k;
-      attachStream(video, c.pid).then(function(fn){
-        if(key === kk){
-          detach = fn;
-          if(wantPlay){ startPlay(); }
-        }else{ try{ fn(); }catch(e){} }
-      });
-    },
-    stop: function(){
-      wantPlay = false;
-      try{ video.pause(); }catch(e){}
-      if(detach){ try{ detach(); }catch(e){} detach = null; }
-      if(video._hls){ try{ video._hls.destroy(); }catch(e){} video._hls = null; }
-      video.removeAttribute("src");
-      try{ video.load(); }catch(e){}
-      key = null;
-      media.classList.remove("errored");
-      setIcon();
-    },
-    pause: function(){ try{ video.pause(); }catch(e){} },
-    current: function(){ return key; }
-  };
-}
-
-/* ambient previews — pause when off-screen or tab hidden */
-var stagePreview = $("#stageVid") ? new Preview($("#stageVid")) : null;
-var srvPreview = $("#srvVid") ? new Preview($("#srvVid")) : null;
-var heroPreview = $("#heroVid") ? new Preview($("#heroVid")) : null;
-if(!reduced && finePointer){
-  if(heroPreview){
-    new IntersectionObserver(function(en){
-      if(!en[0].isIntersecting){ heroPreview.pause(); return; }
-      if(!heroPreview.key){ heroPreview.load("stroom", true); }
-      else{ heroPreview.resume(); }
-    }, {threshold: 0.25}).observe($("#hero"));
-  }
-  var stageWrap = $("#stageMedia");
-  if(stagePreview && stageWrap){
-    new IntersectionObserver(function(en){
-      if(!en[0].isIntersecting){ stagePreview.pause(); }
-      else if(stagePreview.key){ stagePreview.resume(); }
-    }, {threshold: 0.1}).observe(stageWrap);
-  }
-}
-document.addEventListener("visibilitychange", function(){
-  if(document.hidden){
-    if(stagePreview){ stagePreview.pause(); }
-    if(srvPreview){ srvPreview.pause(); }
-    if(heroPreview){ heroPreview.pause(); }
-  }
-});
 
 /* ============ SOUND (off by default, WebAudio synth) ============ */
 var Sound = (function(){
@@ -1670,9 +1362,6 @@ function selectWorld(i, userAction){
   stage.style.setProperty("--mood", c.mood);
   stageIdx.style.webkitTextStrokeColor = c.mood;
   if(stageMedia){ stageMedia.classList.toggle("is-portrait", c.orient === "portrait"); }
-  if(userAction && stagePreview && !reduced && finePointer && window.innerWidth > 760){
-    stagePreview.load(c.key, true);
-  }
   var meta = $("#stageMeta");
   if(meta){ meta.innerHTML = "<b>\u25C6 " + fmt(c.dur) + "</b> " + (c.orient === "portrait" ? "9:16 FILM" : "16:9 FILM"); }
 }
@@ -1698,11 +1387,6 @@ var overlay = $("#caseOverlay"), caseScroll = $("#caseScroll"), caseBody = $(".c
     caseResult = $("#caseResult"), caseNextName = $("#caseNextName"),
     caseFrames = $("#caseFrames"),
     caseIdx = 0, caseLastFocus = null;
-var casePlayer = initPlayer({
-  root: $("#casePlayer"), media: $("#caseMedia"), video: $("#caseVideo"), bg: $("#caseBg"),
-  big: $("#caseBig"), playBtn: $("#casePlay"), track: $("#caseTrack"),
-  time: $("#caseTime"), mute: $("#caseMute"), fs: $("#caseFs"), startMuted: false
-});
 function buildFrames(c){
   if(!caseFrames){ return; }
   caseFrames.innerHTML = "";
@@ -1735,7 +1419,13 @@ function fillCase(i){
   c.system.forEach(function(sy){
     var chip = document.createElement("span"); chip.textContent = sy; caseChips.appendChild(chip);
   });
-  casePlayer.load(c.key, false);
+  muxLoad($("#caseFrame"), $("#caseMedia"), $("#caseBg"), c, true);
+  var caseNow = $("#caseNow");
+  if(caseNow){ caseNow.textContent = "\u25CF NOW PLAYING \u2014 " + c.name.toUpperCase(); }
+  var caseFmt = $("#caseFmt");
+  if(caseFmt){ caseFmt.innerHTML = "<b>\u25C6 " + fmt(c.dur) + "</b> " + (c.orient === "portrait" ? "9:16 FILM" : "16:9 FILM"); }
+  var caseMuxLink = $("#caseMuxLink");
+  if(caseMuxLink){ caseMuxLink.href = "https://player.mux.com/" + c.pid; }
   caseChallenge.textContent = c.challenge;
   caseApproach.textContent = c.approach;
   caseResult.textContent = c.result;
@@ -1769,7 +1459,7 @@ function closeCase(){
   overlay.classList.remove("open");
   overlay.hidden = true;
   if(caseBody){ caseBody.classList.remove("enter"); }
-  casePlayer.stop();
+  muxStop($("#caseFrame"));
   lockScroll(false);
   Sound.sweep();
   if(caseLastFocus && caseLastFocus.focus){ caseLastFocus.focus(); }
@@ -1809,9 +1499,6 @@ function activateSrv(i, userAction){
   SRV[i].chips.forEach(function(c){
     var chip = document.createElement("span"); chip.textContent = c; srvChips.appendChild(chip);
   });
-  if(userAction && srvPreview && !reduced && finePointer && window.innerWidth > 760){
-    srvPreview.load(SRV[i].key, true);
-  }
 }
 srvRows.forEach(function(row){
   var i = parseInt(row.getAttribute("data-srv"), 10);
@@ -1829,22 +1516,18 @@ srvRows.forEach(function(row){
   });
 });
 
-/* ============ SHOWREEL MODAL — REEL '26 PLAYLIST ============ */
+/* ============ SHOWREEL MODAL — REEL '26 (official Mux player) ============ */
 var reel = $("#reel"), reelClose = $("#reelClose"), reelNow = $("#reelNow"),
     reelChapters = $("#reelChapters"), reelLastFocus = null, reelIdx = 0;
-var reelPlayer = initPlayer({
-  root: $("#reel .reel-box"), media: $("#reelMedia"), video: $("#reelVideo"), bg: $("#reelBg"),
-  big: $("#reelBig"), playBtn: $("#reelPlay"), track: $("#reelTrack"),
-  time: $("#reelTime"), mute: $("#reelMute"), fs: $("#reelFs"), startMuted: false,
-  onEnded: function(){
-    if(reelIdx < CASES.length - 1){ playChapter(reelIdx + 1, true); }
-  }
-});
+var reelFrame = $("#reelFrame"), reelMedia = $("#reelMedia"), reelBg = $("#reelBg");
 function playChapter(i, autoplay){
   reelIdx = i;
+  var c = CASES[i];
   $$(".chap", reelChapters).forEach(function(el, k){ el.classList.toggle("active", k === i); });
-  if(reelNow){ reelNow.textContent = CASES[i].name.toUpperCase(); }
-  reelPlayer.load(CASES[i].key, autoplay !== false);
+  if(reelNow){ reelNow.textContent = c.name.toUpperCase(); }
+  muxLoad(reelFrame, reelMedia, reelBg, c, autoplay !== false);
+  var link = $("#reelMuxLink");
+  if(link){ link.href = "https://player.mux.com/" + c.pid; }
 }
 CASES.forEach(function(c, i){
   var b = document.createElement("button");
@@ -1868,7 +1551,7 @@ function openReel(){
   setTimeout(function(){ reelClose.focus(); }, 60);
 }
 function closeReel(){
-  reelPlayer.stop();
+  muxStop(reelFrame);
   reel.classList.remove("open");
   reel.hidden = true;
   lockScroll(false);
@@ -1879,6 +1562,9 @@ $("#openReel").addEventListener("click", openReel);
 $("#heroFrame").addEventListener("click", openReel);
 reelClose.addEventListener("click", closeReel);
 reel.addEventListener("click", function(e){ if(e.target === reel){ closeReel(); } });
+var reelPrevBtn = $("#reelPrev"), reelNextBtn = $("#reelNext");
+if(reelPrevBtn){ reelPrevBtn.addEventListener("click", function(){ playChapter((reelIdx - 1 + CASES.length) % CASES.length, true); }); }
+if(reelNextBtn){ reelNextBtn.addEventListener("click", function(){ playChapter((reelIdx + 1) % CASES.length, true); }); }
 
 
 /* ============ GLOBAL KEYS ============ */
