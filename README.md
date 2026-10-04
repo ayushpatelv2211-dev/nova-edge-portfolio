@@ -32,12 +32,23 @@ Push to GitHub and connect the repo to any of these (no build settings needed):
 - **GitHub Pages** — Settings → Pages → Deploy from branch → `main` / root
 - **Cloudflare Pages** — Connect repo → Deploy (no build command)
 
+## Videos
+
+Project films stream from [Mux](https://mux.com). Each project in the `CASES` array
+(`index.html`) carries its own `pid` (Mux playback id), `orient` (`landscape` 16:9 or
+`portrait` 9:16), `dur`, and `frames` (timecodes for the case-study frame strip).
+
+To swap a film, edit that entry — posters, previews, case players and frame grabs all
+follow automatically (frames are served live from `image.mux.com/{pid}/thumbnail.jpg`).
+Local posters live in `assets/poster-*.jpg` (regenerate from any frame via
+`https://image.mux.com/{pid}/thumbnail.jpg?time={seconds}&width={w}`).
+
 ## Structure
 
 ```
 nova-edge/
-├── index.html   # complete site (styles + scripts inline)
-├── assets/      # project visuals (Stroom, NemPanth, Elite Sport, Sardardham, LDCE, Ecstacy)
+├── index.html        # complete site (styles + scripts inline)
+├── assets/           # poster frames (Stroom, NemPanth, Elite Sport, Sardardham, LDCE, Ecstacy)
 └── README.md
 ```
 
