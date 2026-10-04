@@ -143,6 +143,7 @@ body.menu-open #mobileMenu a.mlink:nth-child(1){transition-delay:.22s}body.menu-
 .m-foot{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.8rem 1.8rem;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;color:var(--grey);align-items:center}
 /* hero */
 #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:7rem;overflow:hidden}
+#hero>.wrap{width:100%}
 .hero-bg{position:absolute;inset:0;pointer-events:none}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(242,239,230,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,230,.05) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 90% 75% at 50% 30%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 75% at 50% 30%,#000 20%,transparent 75%)}
 .hero-glow{position:absolute;left:0;top:0;width:46vw;height:46vw;min-width:420px;min-height:420px;background:radial-gradient(circle,rgba(214,255,63,.1),transparent 62%);transform:translate(-50%,-50%);will-change:left,top}
@@ -1216,9 +1217,11 @@ function fitHero(){
   var avail = heroTitle.clientWidth;
   if(avail < 10) return;
   first.style.fontSize = "100px";
-  var w = first.scrollWidth || 1;
+  first.style.display = "inline-block";
+  var w = first.getBoundingClientRect().width || 1;
   first.style.fontSize = "";
-  var size = Math.max(38, Math.min(230, 100 * avail / w));
+  first.style.display = "";
+  var size = Math.max(38, Math.min(260, 100 * avail / w));
   heroTitle.style.fontSize = size.toFixed(1) + "px";
 }
 var fitT = null;
